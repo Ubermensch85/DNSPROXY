@@ -1,4 +1,4 @@
-# DNSPROXY
+# DNSPROXY E DOQ  SU QUAD9
 
 Indirizzo del software : https://github.com/AdguardTeam/dnsproxy
 
