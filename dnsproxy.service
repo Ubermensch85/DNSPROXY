@@ -1,0 +1,21 @@
+[Unit]
+Description=AdGuard DNS-over-QUIC Proxy
+After=network-online.target
+Before=pihole-FTL.service
+
+[Service]
+Type=simple
+# Usiamo Quad9
+ExecStart=/usr/local/bin/dnsproxy \\
+  -l 127.0.0.1 -p 5353 \\
+  -u quic://dns.quad9.net:853 \\
+  -b 9.9.9.9:53 -b 149.112.112.11:53 -b 192.168.1.1:53 \\
+  --edns \\
+  --pending-requests-enabled \\
+  -r 500 --cache --cache-optimistic
+Restart=always
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target
